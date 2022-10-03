@@ -1,12 +1,12 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Navbar from './components/Navbar';
-import TaxCalculator from './components/TaxCalculator';
-import BillManager from "./components/BillManager";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./Header";
+import Navbar from './Navbar';
+import Taxcalculator from './Taxcalculator';
+import Billmanager from "./Billmanager";
 
 // style
 import "./App.css"
-import Footer from "./components/Footer";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -16,15 +16,15 @@ function App() {
         <BrowserRouter>
           <Navbar />
 
-          <Switch>
+          <Routes>
             <Route  exact path ="/">
-              <TaxCalculator />
+              <Taxcalculator />
             </Route>
 
             <Route path="/billManager">
-              <BillManager />
+              <Billmanager />
             </Route>
-        </Switch>
+        </Routes>
       
         </BrowserRouter>
         </div>

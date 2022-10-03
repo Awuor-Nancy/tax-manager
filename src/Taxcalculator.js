@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import "./TaxCalculator.css";
+import "./Taxcalculator.css";
 
 export default function TaxCalculator() {
 
