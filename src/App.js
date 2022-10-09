@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route,  Switch } from "react-router-dom";
 import Header from "./Header";
 import Navbar from './Navbar';
 import Taxcalculator from './Taxcalculator';
@@ -16,7 +16,7 @@ function App() {
         <BrowserRouter>
           <Navbar />
 
-          <Routes>
+          <Switch>
             <Route  exact path ="/">
               <Taxcalculator />
             </Route>
@@ -24,7 +24,8 @@ function App() {
             <Route path="/billManager">
               <Billmanager />
             </Route>
-        </Routes>
+
+        </Switch>
       
         </BrowserRouter>
         </div>

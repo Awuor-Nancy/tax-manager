@@ -58,8 +58,6 @@ export default function TaxCalculator() {
 
     }
 
-
-
     useEffect(() => {
         if(grossSalary.length != '0') {
             taxHandler();

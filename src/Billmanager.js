@@ -10,7 +10,6 @@ export default function BillManager() {
     {name: 'Food', amount: 5300, id: Math.random()}
   ]);
 
-
   const [billName, setBillName] = useState('');
   const [billAmount, setBillAmount] = useState('');
   const [expenses, setExpenses] = useState([]);
@@ -96,10 +95,8 @@ export default function BillManager() {
                   )}
                 </ul>
               <form 
-                className='keyValue-form' 
-                style={{marginLeft: "120px"}}
-                onSubmit = {keyValueHandler}
-                >
+                className='keyValue-form' style={{marginLeft: "120px"}} onSubmit = {keyValueHandler}>
+
                 <div className='keyValue-container' style={{display: "#flex", justifyContent: "space-between", gap: "20px"}}>
                   <input type="text" 
                   style={{background: "#fff", width: "150px"}}
