@@ -3,7 +3,7 @@ import "./Footer.css";
 export default function Footer() {
   return (
     <div className='footer'>
-        Powered by Natujenge
+        @ ****awuorNancy****
     </div>
   )
 }
