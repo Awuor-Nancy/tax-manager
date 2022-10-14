@@ -43,9 +43,9 @@ export default function BillManager() {
 
     if(expenses.length !==0) {
       expenses.forEach((expense) => {
-        console.log('expenses are '+expense);
+        console.log('expenses are '+ expense);
         totalBill += Number(expense.amount);
-        console.log('total bill is '+totalBill);
+        console.log('total bill is '+ totalBill);
       })
     }
 
