@@ -1,9 +1,12 @@
 import "./Footer.css";
+import Footer from "./Footer";
+
 
 export default function Footer() {
   return (
     <div className='footer'>
-        @ ****awuorNancy****
+       <Footer />
+        @ Group7
     </div>
   )
 }
