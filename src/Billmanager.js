@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Billmanager.css';
+import Navbar from './Navbar';
 
 export default function BillManager() {
   const [netSalary, setNetSalary] = useState(95000);
@@ -63,6 +64,7 @@ export default function BillManager() {
 
   return (
     <div className="taxcalculator">
+     <Navbar />
        <div className="form-wrapper">
             <form>
                 <label htmlFor="Salary">Net Salary</label>

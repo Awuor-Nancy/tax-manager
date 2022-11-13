@@ -1,65 +1,70 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
-import './LoginForm.css';
+import React from 'react'
+import './LoginForm.css'
+import {useState} from 'react';
+import { Link } from 'react-router-dom';
+import {FaGoogle, FaFacebook, FaTwitter} from 'react-icons/fa';
 
-export default function LoginForm() {
 
-    return(
-  
-<div className="login-wrap">
-	<div className="login-html">
-		<input id="tab-1" type="radio" name="tab" className="sign-in" checked></input>
-		<label for="tab-1" className="tab">Sign In</label>
-		<input id="tab-2" type="radio" name="tab" className="sign-up"></input>
-		<label for="tab-2" className="tab">Sign Up</label>
-		<div className="login-form">
-			<div className="sign-in-htm">
-				<div className="group">
-					<input id="user" placeholder='Username'type="text" className="input"></input>
-				</div>
-				<div className="group">
-					<label for="pass" className="label">Password</label>
-					<input id="pass" type="password" className="input" placeholder='Input password'></input>
-				</div>
-				<div className="group">
-					<input id="check" type="checkbox" class="check" checked></input>
-					<label for="check"><span className="icon"></span> Keep me Signed in</label>
-				</div>
-				<div className="group">
-					<input type="submit" className="button" value="Sign In"></input>
-				</div>
-				<div className="hr"></div>
-				<div className="foot-lnk">
-					<a href="#forgot">Forgot Password?</a>
-				</div>
-			</div>
-			<div className="sign-up-htm">
-				<div className="group">
-					<label for="user" className="label">Username</label>
-					<input id="user" type="text" className="input" placeholder='Enter your name'></input>
-				</div>
-				<div className="group">
-					<label for="pass" className="label">Password</label>
-					<input id="pass" type="password" className="input" placeholder='Input password'></input>
-				</div>
-				<div className="group">
-					<label for="pass" className="label">Repeat Password</label>
-					<input id="pass" type="password" className="input" placeholder='Input password'></input>
-				</div>
-				<div className="group">
-					<label for="pass" className="label">Email Address</label>
-					<input id="pass" type="text" className="input" placeholder='Enter your email'></input>
-				</div>
-				<div className="group">
-					<input type="submit" className="button" value="Sign Up"></input>
-				</div>
-				<div className="hr"></div>
-				<div className="foot-lnk">
-					<label for="tab-1">Already Member?</label>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-    )
+function LoginForm() {
+    const [values, setValues] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: ""
+
+    })
+    const [submitted, setSubmitted]= useState(false);
+    const [valid, setValid] = useState(false);
+
+    const handleChange=(e)=>{
+        setValues({...values, 
+              firstName: e.target.value,
+              lastName: e.target.value, 
+              email: e.target.value,
+              password: e.target.value
+            })
+    }
+
+    const handleSubmit = (e)=>{
+        e.preventDefault()  //prevent refreshing
+        setSubmitted(true);
+        // ony register user if values are Valid.
+        if(values.firstName && values.lastName && values.email && values.password)
+        setValid(true);
+
+    }
+  return (
+    <div className='Login-Form'>
+    <h1>Welcome!!</h1>
+    <form className='login' onSubmit={handleSubmit}>
+        {submitted && valid ? <div className='register'>Success!..Thank you for Registering</div> :null }
+        
+        <input values={values.firstName} onChange={handleChange} type="text" name="firstName" placeholder= "First name" /> <br />
+        {submitted && !values.firstName ?<span>Please enter first name</span> : null }
+        
+        <input  values={values.lastName} onChange={handleChange} type="text" name="lastName" placeholder= "Last name" /> <br />
+        {submitted && !values.lastName ? <span>Please enter last name</span> : null }
+        
+        <input values={values.email} onChange={handleChange} type="text" name="email" placeholder= "Input Email Address" /> <br />
+        {submitted && !values.email ? <span>Please enter email address</span> : null }
+        
+        <input  values={values.password} onChange={handleChange} type="text" name="password" placeholder= "Input Password" /> <br />
+        {submitted && !values.password ? <span>Please enter password</span> : null } <br /> 
+        
+        <Link to='/taxcalculator'>
+        <button className='btn' type='submit' onClick={handleSubmit}>Register</button>
+        </Link>        
+       
+    </form>
+
+       <div className='socials'>
+          <FaGoogle />
+          <FaFacebook />
+          <FaTwitter />
+       </div> 
+      
+    </div>
+  )
 }
+
+export default LoginForm

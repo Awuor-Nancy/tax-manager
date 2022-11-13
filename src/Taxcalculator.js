@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 import "./Taxcalculator.css";
 
@@ -59,7 +60,7 @@ export default function TaxCalculator() {
     }
 
     useEffect(() => {
-        if(grossSalary.length != '0') {
+        if(grossSalary.length !== '0') {
             taxHandler();
         }
         
@@ -67,7 +68,9 @@ export default function TaxCalculator() {
 
 
   return (
+
     <div className="taxcalculator">
+      <Navbar />
        <div className="form-wrapper">
             <form>
                 <label htmlFor="Salary">Gross Salary</label>
@@ -121,7 +124,8 @@ export default function TaxCalculator() {
                     </li>
                 </ul>
                 <div className="bottom-link">
-                    <Link to = "/billManager">manage bills</Link>
+                    
+                    <Link to = "/billmanager">Manage Bills</Link>
                 </div>
             </div>
        </div>

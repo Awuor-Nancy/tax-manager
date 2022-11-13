@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./Header";
-import Navbar from './Navbar';
+
 import Taxcalculator from './Taxcalculator';
 import Billmanager from "./Billmanager";
 import LoginForm from "./LoginForm";
@@ -12,28 +12,24 @@ function App() {
   return (
     <div className="App">
        <Header />
+       
       <div className="app-wrapper">
 
         <BrowserRouter>
-            <Navbar />
             
-        <Switch>
-          <Route>
-            <LoginForm exact path = '/loginform'/>
-          </Route>
+        <Switch>   
 
-            <Route path ="/taxcalculator">
-              <Taxcalculator />
-            </Route>
+          <Route exact path="/"  component={ LoginForm } />
 
-            <Route path="/billManager">
-              <Billmanager />
-            </Route>
+          <Route path="/taxcalculator"  component={ Taxcalculator } />
 
-        </Switch>
+
+          <Route path="/billmanager"  component={Billmanager}/>
+
+          </Switch>
       
-        </BrowserRouter>
-        </div>
+          </BrowserRouter>
+          </div>
        
     </div>
   );
